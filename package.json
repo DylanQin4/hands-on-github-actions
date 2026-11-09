@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "docker:build": "docker build -t hands-on-cicd .",
+    "docker:run": "docker run -p 3000:3000 --init --rm hands-on-cicd",
     "format": "npx prettier . --write",
     "format:check": "npx prettier . --check",
     "lint": "npx eslint .",
