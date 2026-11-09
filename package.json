@@ -6,6 +6,8 @@
   "scripts": {
     "format": "npx prettier . --write",
     "format:check": "npx prettier . --check",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
     "start": "node server.js",
     "test": "jest"
   },
