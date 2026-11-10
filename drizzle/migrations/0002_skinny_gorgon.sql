@@ -1,0 +1,1 @@
+ALTER TABLE "subscribers" ADD COLUMN "email" varchar(254);

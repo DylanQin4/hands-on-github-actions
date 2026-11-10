@@ -15,6 +15,13 @@
       "when": 1794307741344,
       "tag": "0001_steady_mac_gargan",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794314823717,
+      "tag": "0002_skinny_gorgon",
+      "breakpoints": true
     }
   ]
 }

@@ -9,6 +9,7 @@ const subscribers = pgTable('subscribers', {
   })
     .defaultNow()
     .notNull(),
+  email: varchar('email', { length: 254 }),
 })
 
 module.exports = { subscribers }
