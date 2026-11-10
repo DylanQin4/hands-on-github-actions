@@ -1,5 +1,6 @@
 const express = require('express')
 const { join } = require('node:path')
+const { sql } = require('drizzle-orm')
 const validator = require('validator')
 const { getDb } = require('./db/index.js')
 const { subscribers } = require('./db/schema.js')
@@ -35,6 +36,23 @@ app.post('/api/subscribers', async (req, res) => {
   } catch (err) {
     console.error(err)
     res.status(500).json({ error: 'Something went wrong.' })
+  }
+})
+
+app.get('/health', async (req, res) => {
+  try {
+    await getDb().execute(sql`SELECT 1`)
+
+    res.status(200).json({
+      status: 'ok',
+    })
+  } catch (error) {
+    console.error('Health check failed: ', error)
+
+    res.status(503).json({
+      status: 503,
+      message: 'Database unavailable',
+    })
   }
 })
 
