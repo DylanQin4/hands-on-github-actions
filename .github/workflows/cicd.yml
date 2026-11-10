@@ -65,7 +65,7 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/hands-on-cicd:${{ github.sha }}
 
       - name: Trigger Render deploy
-        env: 
+        env:
           RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
           IMAGE_URL: docker.io/${{ vars.DOCKERHUB_USERNAME }}/hands-on-cicd:${{ github.sha }}
         run: |
