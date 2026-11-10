@@ -17,10 +17,10 @@ app.get('/', async (req, res) => {
 
 app.post('/api/subscribers', async (req, res) => {
   try {
-    const email =
+    const emailAddress =
       typeof req.body?.email === 'string' ? req.body.email.trim() : ''
 
-    if (!validator.isEmail(email)) {
+    if (!validator.isEmail(emailAddress)) {
       return res.status(400).json({ error: 'Invalid email' })
     }
 
@@ -28,7 +28,7 @@ app.post('/api/subscribers', async (req, res) => {
 
     await db
       .insert(subscribers)
-      .values({ emailAddress: req.body.email })
+      .values({ emailAddress, email: emailAddress })
       .onConflictDoNothing({ target: subscribers.emailAddress })
 
     res.sendStatus(200)
